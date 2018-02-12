@@ -6,33 +6,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * Created by Patryk on 2017-07-10.
- */
 public class DbUtils {
 
-    //singletone
     private static DbUtils instance = null;
+    private static final String SQLITE_DRIVER = "org.sqlite.JDBC";
+    private static final String DATABASE_SQLITE = "jdbc:sqlite:Currency.db";
+    //    private static String user = "admin";
+    //    private static String pass = "admin";
+    private Connection connection;
 
     public static DbUtils getInstance() {
         if (instance == null) {
             instance = new DbUtils();
         }
         return instance;
-    }
-
-/*    public static final String MYSQL_DRIVER = "com.mysql.jdbc.Driver";
-    public static final String DATABASE_MYSQL = "jdbc:mysql://localhost:3306/database1";*/
-
-    public static final String SQLITE_DRIVER = "org.sqlite.JDBC";
-    public static final String DATABASE_SQLITE = "jdbc:sqlite:Currency.db";
-//    private static String user = "admin";
-//    private static String pass = "admin";
-
-    private Connection connection;
-
-    public Connection getConnection() {
-        return connection;
     }
 
     private DbUtils() {
@@ -45,6 +32,10 @@ public class DbUtils {
             Alerts.warningAlert("Błąd połączenia z bazą danych!");
         }
         createTables();
+    }
+
+    public Connection getConnection() {
+        return connection;
     }
 
     public static void closeConnection(Connection connection) {
@@ -99,7 +90,6 @@ public class DbUtils {
                         "val10 DOUBLE NOT NULL," +
                         "date DATE NOT NULL" +
                         " )";
-
         try {
             dropTable("currentCurrency");
             dropTable("lastCurrency");
@@ -110,8 +100,5 @@ public class DbUtils {
         } catch (SQLException e) {
             Alerts.warningAlert("Błąd połączenia z bazą danych!");
         }
-
     }
-
-
 }

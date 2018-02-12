@@ -2,7 +2,7 @@ package CurrencyRateDownlaoder.database;
 
 
 import CurrencyRateDownlaoder.database.domain.Currency;
-import CurrencyRateDownlaoder.database.domain.CurrencySelected;
+import CurrencyRateDownlaoder.database.domain.SelectedCurrency;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +17,6 @@ public class CurrencyDaoImpl implements CurrencyDao {
 
         List<Currency> currencies = null;
         try {
-
             ResultSet resultSet = DbUtils.getInstance().getConnection().createStatement().executeQuery(sql);
             currencies = new ArrayList<>();
             while (resultSet.next()) {
@@ -32,15 +31,12 @@ public class CurrencyDaoImpl implements CurrencyDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("Curr z getAll: " + currencies);
         return currencies;
     }
-
 
     @Override
     public Currency getCurrencyById(int id, String tableName) {
         String getSql = "SELECT * FROM " + tableName + " " + "WHERE id =?";
-
         try {
             PreparedStatement prep = DbUtils.getInstance().getConnection().prepareStatement(getSql);
             prep.setInt(1, id);
@@ -90,7 +86,7 @@ public class CurrencyDaoImpl implements CurrencyDao {
     }
 
     @Override
-    public void addSelectedCurrency(CurrencySelected currency) {
+    public void addSelectedCurrency(SelectedCurrency currency) {
         String sql = "INSERT INTO SelectedCurrency(code,currencyName,valAverage,valMax,valMin,val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,DATE) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         try {
             PreparedStatement statement = DbUtils.getInstance().getConnection().prepareStatement(sql);

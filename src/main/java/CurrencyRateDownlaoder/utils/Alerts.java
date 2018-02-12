@@ -5,11 +5,8 @@ import javafx.scene.control.ButtonType;
 
 import java.util.Optional;
 
-/**
- * Created by Patryk on 27.07.2017.
- */
-public class Alerts {
 
+public class Alerts {
 
     public static Optional<ButtonType> confirmationAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -46,6 +43,4 @@ public class Alerts {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-
 }

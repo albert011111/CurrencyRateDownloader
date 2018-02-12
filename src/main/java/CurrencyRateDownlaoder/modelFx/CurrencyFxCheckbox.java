@@ -2,9 +2,7 @@ package CurrencyRateDownlaoder.modelFx;
 
 import javafx.beans.property.*;
 
-/**
- * Created by Patryk on 2017-07-20.
- */
+
 public class CurrencyFxCheckbox {
 
     private IntegerProperty id = new SimpleIntegerProperty();

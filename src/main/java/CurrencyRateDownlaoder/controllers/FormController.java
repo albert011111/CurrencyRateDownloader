@@ -28,55 +28,37 @@ public class FormController {
 
     @FXML
     private BorderPane borderPane;
-
     @FXML
     private Button testButtonOnAction;
-
     @FXML
     private TableView<CurrencyFxCheckbox> tableView;
-
     @FXML
     private TableColumn<CurrencyFxCheckbox, Number> idColumn;
-
     @FXML
     private TableColumn<CurrencyFxCheckbox, String> codeColumn;
-
     @FXML
     private TableColumn<CurrencyFxCheckbox, String> currentyNameColumn;
-
     @FXML
     private TableColumn<CurrencyFxCheckbox, Boolean> checkBoxColumn;
-
 
     private CurrencyDao currencyDao;
     private List<Currency> currencies;
     private ObservableList<CurrencyFxCheckbox> currenciesFx;
-
-
     private MainController mainController;
 
-
     public void initialize() {
-
-
         tableView.setEditable(true);
-        //CurrencyRatesDownloader.parseData();
         currencyDao = new CurrencyDaoImpl();
 
-        //downloads data from 2 tables and converts it to FX versions
+        //downloads data from 2 tables and converts it to FX version
         currencies = currencyDao.getAll(FinalAdresses.CURRENT_CURRENCY, FinalAdresses.LAST_CURRENCY);
         currenciesFx = getCurrencyFxList(currencies);
-
-        //populates table with elements from observable list
         populateTableView(currenciesFx);
-
-        //generates checkboxes in each row of table
         generateCheckboxesInTableView();
-
     }
 
     private List<CurrencyFxCheckbox> generateSelctedCurrencyList() {
-        List<CurrencyFxCheckbox> selectedCurrencyList = this.tableView.getItems().stream().filter(currency -> currency.isSelected() == true).collect(Collectors.toList());
+        List<CurrencyFxCheckbox> selectedCurrencyList = this.tableView.getItems().stream().filter(currency -> currency.isSelected()).collect(Collectors.toList());
         return selectedCurrencyList;
     }
 
@@ -94,7 +76,6 @@ public class FormController {
             public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<CurrencyFxCheckbox, Boolean> param) {
                 CurrencyFxCheckbox currencyFxCheckbox = param.getValue();
                 SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(currencyFxCheckbox.isSelected());
-
                 booleanProperty.addListener(new ChangeListener<Boolean>() {
                     @Override
                     public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
@@ -124,9 +105,7 @@ public class FormController {
     void buttonOnAction() {
         Optional<ButtonType> result = Alerts.confirmationAlert("Czy zapisać wybrane elementy w bazie?");
         if (result.get() == ButtonType.OK) {
-            //checks which checkboxes are selected and preparing list of selected items
             List<CurrencyFxCheckbox> selectedCurrencyFx = generateSelctedCurrencyList();
-
             List<String> paths = new ArrayList<>();
             selectedCurrencyFx.forEach(c -> paths.add(c.getCode().toLowerCase()));
 
@@ -134,13 +113,11 @@ public class FormController {
                 Alerts.warningAlert("Brak wybranych elementow!");
             } else {
                 for (int i = 0; i < paths.size(); i++) {
-                    CurrencyRatesDownloader.downloadSelectedCurrency(paths.get(i));
+                    CurrencyRatesDownloader.downloadSelectedCurrencyFromNbpApi(paths.get(i));
                     Alerts.infoAlert("Elementy zapisano do bazy!");
                 }
             }
-        } else {
         }
-
     }
 
     public void setMainController(MainController mainController) {

@@ -25,15 +25,12 @@ public class MainController {
 
     @FXML
     private Button formButton;
-
     @FXML
     private Label firstDifferenceLabel;
     @FXML
     private Label secondDifferenceLabel;
     @FXML
     private Label thirdDifferenceLabel;
-
-
     @FXML
     private Label secondCodeLabel;
     @FXML
@@ -46,61 +43,39 @@ public class MainController {
     private Label thirdNameLabel;
     @FXML
     private Label firstCodeLabel;
-
-
     @FXML
     private TableView<CurrencyFx> tableView;
-
     @FXML
     private TableColumn<CurrencyFx, Number> idColumn;
-
     @FXML
     private TableColumn<CurrencyFx, String> codeColumn;
-
     @FXML
     private TableColumn<CurrencyFx, String> currentyNameColumn;
-
     @FXML
     private TableColumn<CurrencyFx, Number> currentValueColumn;
-
     @FXML
     private TableColumn<CurrencyFx, Number> lastValueColumn;
 
-
     private CurrencyDao currencyDao;
-
     private List<Currency> currencies;
-
-    public List<Currency> getCurrencies() {
-        return currencies;
-    }
 
     @FXML
     public void initialize() {
         setCaspianStyle();
         CurrencyRatesDownloader.parseData();
         currencyDao = new CurrencyDaoImpl();
-
         //downloads data from 2 tables and converts it to FX versions
         currencies = currencyDao.getAll(FinalAdresses.CURRENT_CURRENCY, FinalAdresses.LAST_CURRENCY);
-
         ObservableList<CurrencyFx> currenciesFx = getCurrencyFxList(currencies);
-
-        //populates table with elements from observable list
         populateTableView(currenciesFx);
-
-        //colors row if currency rate has increased
         selectRowsWithRaiseCurrency();
-
-
-        //checks difference between actual and yesterdays currency rating/ key: Currency, value: Difference
         Map<Currency, Double> sortedMap = getSortedCurrencyMap(currencies);
+        List<Map.Entry<Currency, Double>> getBiggestCurrencyIncreases = sortedMap.entrySet().stream().limit(3).collect(Collectors.toList());
+        initBottomTextFields(getBiggestCurrencyIncreases);
+    }
 
-        //selecting 3 biggest currency rate increases
-        List<Map.Entry<Currency, Double>> list = sortedMap.entrySet().stream().limit(3).collect(Collectors.toList());
-
-        //initialize text fields under table with the biggest rate changes
-        initBottomTextFields(list);
+    public List<Currency> getCurrencies() {
+        return currencies;
     }
 
     private void setCaspianStyle() {
@@ -108,15 +83,14 @@ public class MainController {
     }
 
     private void initBottomTextFields(List<Map.Entry<Currency, Double>> list) {
-        //currency code
         this.firstCodeLabel.setText(list.get(0).getKey().getCode());
         this.secondCodeLabel.setText(list.get(1).getKey().getCode());
         this.thirdCodeLabel.setText(list.get(2).getKey().getCode());
-        //names
+
         this.firstNameLabel.setText(list.get(0).getKey().getCurrencyName());
         this.secondNameLabel.setText(list.get(1).getKey().getCurrencyName());
         this.thirdNameLabel.setText(list.get(2).getKey().getCurrencyName());
-        //value increase (or the lowest decrease)
+
         this.firstDifferenceLabel.setText("+" + list.get(0).getValue());
         this.secondDifferenceLabel.setText("+" + list.get(1).getValue());
         this.thirdDifferenceLabel.setText("+" + list.get(2).getValue());
@@ -162,7 +136,6 @@ public class MainController {
             @Override
             protected void updateItem(CurrencyFx item, boolean empty) {
                 super.updateItem(item, empty);
-
                 if (item == null) {
                     setStyle("");
                 } else if (item.valueProperty().get() - item.lastValueProperty().getValue() > 0) {
@@ -183,7 +156,6 @@ public class MainController {
         this.lastValueColumn.setCellValueFactory(cell -> cell.getValue().lastValueProperty());
     }
 
-
     private ObservableList<CurrencyFx> getCurrencyFxList(List<Currency> currencies) {
         ObservableList<CurrencyFx> currenciesFx = FXCollections.observableArrayList();
         for (Currency c : currencies) {
@@ -198,16 +170,12 @@ public class MainController {
         return currencies;
     }
 
-
-    public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> unsortMap) {
-
-        List<Map.Entry<K, V>> list = new LinkedList<>(unsortMap.entrySet());
+    public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> unsortedMap) {
+        List<Map.Entry<K, V>> list = new LinkedList<>(unsortedMap.entrySet());
         Collections.sort(list, new Comparator<Map.Entry<K, V>>() {
             @Override
             public int compare(Map.Entry<K, V> o1, Map.Entry<K, V> o2) {
-
                 int result = 0;
-
                 if (o1.getValue().compareTo(o2.getValue()) < 0) {
                     result = 1;
                 } else if (o1.getValue().compareTo(o2.getValue()) == 0) {
@@ -225,8 +193,5 @@ public class MainController {
             result.put(entry.getKey(), entry.getValue());
         }
         return result;
-
     }
-
-
 }

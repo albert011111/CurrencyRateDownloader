@@ -1,6 +1,5 @@
 package CurrencyRateDownlaoder.database.domain;
 
-
 public class Currency {
     private int id;
     private String code;
@@ -8,7 +7,6 @@ public class Currency {
     private double value;
     private double lastValue;
     private boolean selected;
-
 
     public Currency() {
     }
@@ -32,9 +30,7 @@ public class Currency {
         this.currencyName = currencyName;
         this.value = value;
         this.lastValue = lastValue;
-
     }
-
 
     @Override
     public String toString() {

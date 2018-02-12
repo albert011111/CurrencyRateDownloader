@@ -2,9 +2,7 @@ package CurrencyRateDownlaoder.modelFx;
 
 import javafx.beans.property.*;
 
-/**
- * Created by Patryk on 2017-07-20.
- */
+
 public class CurrencyFx {
 
     private IntegerProperty id = new SimpleIntegerProperty();
@@ -12,7 +10,6 @@ public class CurrencyFx {
     private StringProperty currencyName = new SimpleStringProperty();
     private DoubleProperty value = new SimpleDoubleProperty();
     private DoubleProperty lastValue = new SimpleDoubleProperty();
-
 
     public int getId() {
         return id.get();

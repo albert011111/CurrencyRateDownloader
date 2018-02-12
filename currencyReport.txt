@@ -1,35 +1,35 @@
-|CHF|frank szwajcarski|0.010399999999999743
-|CAD|dolar kanadyjski|0.010099999999999998
-|XDR|SDR (MFW)|0.006899999999999906
-|TRY|lira turecka|0.00660000000000005
-|EUR|euro|0.005399999999999849
-|ILS|nowy izraelski szekel|0.0043000000000000815
-|BGN|lew (Bułgaria)|0.0028000000000001357
-|RON|lej rumuński|0.0023000000000000798
-|SEK|korona szwedzka|0.0011999999999999789
-|AUD|dolar australijski|5.00000000000167E-4
-|HRK|kuna (Chorwacja)|5.00000000000056E-4
-|DKK|korona duńska|4.999999999999449E-4
+|GBP|funt szterling|0.04459999999999997
+|XDR|SDR (MFW)|0.028999999999999915
+|EUR|euro|0.01780000000000026
+|USD|dolar amerykański|0.014100000000000001
+|CHF|frank szwajcarski|0.012599999999999945
+|BGN|lew (Bułgaria)|0.009199999999999875
+|BRL|real (Brazylia)|0.007399999999999851
+|CAD|dolar kanadyjski|0.005900000000000016
+|ILS|nowy izraelski szekel|0.0047000000000000375
+|CNY|yuan renminbi (Chiny)|0.0047000000000000375
+|SGD|dolar singapurski|0.0035000000000002807
+|MYR|ringgit (Malezja)|0.0035000000000000586
+|NZD|dolar nowozelandzki|0.0034999999999998366
+|RON|lej rumuński|0.0033999999999999586
+|AUD|dolar australijski|0.0028000000000001357
+|DKK|korona duńska|0.0024999999999999467
+|HRK|kuna (Chorwacja)|0.0021999999999999797
+|TRY|lira turecka|0.0020999999999999908
+|HKD|dolar Hongkongu|0.0017999999999999683
+|CZK|korona czeska|8.999999999999841E-4
+|PHP|peso filipińskie|8.00000000000009E-4
+|THB|bat (Tajlandia)|3.999999999999976E-4
+|INR|rupia indyjska|1.6800000000000148E-4
+|ISK|korona islandzka|1.419999999999963E-4
+|RUB|rubel rosyjski|9.999999999999593E-5
 |NOK|korona norweska|9.999999999998899E-5
-|ISK|korona islandzka|9.599999999999886E-5
-|HUF|forint (Węgry)|2.499999999999898E-5
-|CLP|peso chilijskie|1.700000000000052E-5
-|KRW|won południowokoreański|7.000000000000062E-6
-|IDR|rupia indonezyjska|3.2999999999999176E-7
-|UAH|hrywna (Ukraina)|0.0
-|CZK|korona czeska|0.0
-|PHP|peso filipińskie|0.0
-|JPY|jen (Japonia)|-1.9000000000001654E-5
-|INR|rupia indyjska|-6.799999999999862E-5
-|RUB|rubel rosyjski|-9.999999999999593E-5
-|THB|bat (Tajlandia)|-2.999999999999947E-4
-|MXN|peso meksykańskie|-3.0000000000002247E-4
-|GBP|funt szterling|-3.00000000000189E-4
-|HKD|dolar Hongkongu|-5.000000000000004E-4
-|CNY|yuan renminbi (Chiny)|-5.999999999999339E-4
-|MYR|ringgit (Malezja)|-0.0018000000000000238
-|ZAR|rand (Republika Południowej Afryki)|-0.0031999999999999806
-|SGD|dolar singapurski|-0.0036000000000000476
-|NZD|dolar nowozelandzki|-0.0037000000000002586
-|USD|dolar amerykański|-0.0041999999999999815
-|BRL|real (Brazylia)|-0.0045999999999999375
+|SEK|korona szwedzka|9.999999999998899E-5
+|HUF|forint (Węgry)|5.299999999999923E-5
+|JPY|jen (Japonia)|3.999999999999837E-5
+|CLP|peso chilijskie|3.899999999999997E-5
+|KRW|won południowokoreański|6.999999999999628E-6
+|IDR|rupia indonezyjska|1.590000000000044E-6
+|UAH|hrywna (Ukraina)|-2.999999999999947E-4
+|MXN|peso meksykańskie|-5.000000000000004E-4
+|ZAR|rand (Republika Południowej Afryki)|-0.0015999999999999903

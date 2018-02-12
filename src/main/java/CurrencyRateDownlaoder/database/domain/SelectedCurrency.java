@@ -2,10 +2,7 @@ package CurrencyRateDownlaoder.database.domain;
 
 import java.time.LocalDate;
 
-/**
- * Created by Patryk on 26.07.2017.
- */
-public class CurrencySelected extends Currency {
+public class SelectedCurrency extends Currency {
 
     private double val1;
     private double val2;
@@ -22,10 +19,10 @@ public class CurrencySelected extends Currency {
     private double valAvg;
     private LocalDate addDate;
 
-    public CurrencySelected() {
+    public SelectedCurrency() {
     }
 
-    public CurrencySelected(int id, String code, String currencyName, double valAvg, double valMax, double valMin, double val1, double val2, double val3, double val4, double val5, double val6, double val7, double val8, double val9, double val10, LocalDate addDate) {
+    public SelectedCurrency(int id, String code, String currencyName, double valAvg, double valMax, double valMin, double val1, double val2, double val3, double val4, double val5, double val6, double val7, double val8, double val9, double val10, LocalDate addDate) {
         super(id, code, currencyName);
         this.val1 = val1;
         this.val2 = val2;
