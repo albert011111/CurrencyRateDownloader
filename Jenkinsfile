@@ -22,8 +22,8 @@ pipeline {
         stage('SCM veryfing'){
             steps{
                     echo 'stage SCM'
-                    git 'https://github.com/albert011111/CurrencyRateDownloader'
-                   bat 'mvn clean compile'
+                    //git 'https://github.com/albert011111/CurrencyRateDownloader'
+                    bat 'mvn clean compile'
             }
         }
 
