@@ -27,5 +27,12 @@ pipeline {
             }
         }
 
+        stage('Checkstyle'){
+                    steps{
+                            echo 'stage Checkstyle'
+                            bat 'mvn checkstyle:check'
+                            recordIssues(tools: [checkstyle(reportEncoding: 'UTF-8)])'
+                    }
+         }
     }
 }
