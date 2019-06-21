@@ -35,8 +35,14 @@ pipeline {
                             
                             script{
                             def checkstyle = scanForIssues tool: [$class: 'CheckStyle'], pattern: '**/target/checkstyle-result.xml'
+                            def pmd = scanForIssues tool: [$class: 'Pmd'], pattern: '**/target/pmd.xml'
+                            def cpd = scanForIssues tool: [$class: 'Cpd'], pattern: '**/target/cpd.xml'
+                            def findbugs = scanForIssues tool: [$class: 'FindBugs'], pattern: '**/target/findbugsXml.xml'
                             
                             publishIssues issues:[checkstyle]
+                            publishIssues issues:[pmd]
+                            publishIssues issues:[cpd]
+                            publishIssues issues:[findbugs]
                             }
                     }
          }
