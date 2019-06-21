@@ -23,7 +23,7 @@ pipeline {
             steps{
                     echo 'stage SCM'
                     //git 'https://github.com/albert011111/CurrencyRateDownloader'
-                    bat 'mvn clean install -U checkstyle:checkstyle'
+                    bat 'mvn clean install -U checkstyle:checkstyle pmd:pmd pmd:cpd'
             }
         }
 
