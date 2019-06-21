@@ -30,8 +30,14 @@ pipeline {
         stage('Checkstyle'){
                     steps{
                             echo 'stage Checkstyle'
-                            bat 'mvn checkstyle:check'
-                            recordIssues(tools: [checkstyle(reportEncoding: 'UTF-8')])
+                          //  bat 'mvn checkstyle:check'
+                         //   recordIssues(tools: [checkstyle(reportEncoding: 'UTF-8')])
+                            
+                            script{
+                            def checkstyle = scanForIssues tool: [$class: 'CheckStyle'], pattern: '**/target/checkstyle-result.xml'
+                            
+                            publishIssues issues:[checkstyle]
+                            }
                     }
          }
     }
