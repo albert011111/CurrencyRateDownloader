@@ -5,10 +5,6 @@ pipeline {
             maven 'maven_3_6_1'
         }
 
-        checkstyle {
-        ignoreFailures = false
-        }
-
     stages{
             stage('ECHO stage'){
                     steps{                  
