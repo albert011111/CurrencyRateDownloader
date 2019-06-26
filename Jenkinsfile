@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Check dependency conflict') {
             steps {
-                sh "mvn enforcer:enforce -U"
+                bat "mvn enforcer:enforce -U"
             }
         }
 
