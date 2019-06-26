@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="CurrencyRateDownloader" />
+        <module name="KantorWalut" />
         <module name="KantorWalut_01" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="CurrencyRateDownloader" target="1.8" />
+      <module name="KantorWalut" target="1.8" />
       <module name="KantorWalut_01" target="1.8" />
     </bytecodeTargetLevel>
   </component>

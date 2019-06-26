@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CurrencyRateDownloader.iml" filepath="$PROJECT_DIR$/CurrencyRateDownloader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KantorWalut.iml" filepath="$PROJECT_DIR$/KantorWalut.iml" />
     </modules>
   </component>
 </project>
